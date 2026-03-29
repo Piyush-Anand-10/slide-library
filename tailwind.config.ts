@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        coral: "hsl(var(--coral))",
+        sunshine: "hsl(var(--sunshine))",
+        mint: "hsl(var(--mint))",
+        sky: "hsl(var(--sky))",
+        lavender: "hsl(var(--lavender))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +62,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      fontFamily: {
+        heading: ['Nunito', 'sans-serif'],
+        body: ['Quicksand', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
