@@ -8,6 +8,7 @@ export type Presentation = {
   gradient: string;
   icon: string;
   fileUrl?: string;
+  slides?: string[];
 };
 
 export const categories = [
@@ -23,7 +24,7 @@ export const categories = [
 export type Category = (typeof categories)[number];
 
 export const presentations: Presentation[] = [
-  { id: "1", title: "Fruits", category: "Major Project", description: "Introduction and scope of the major project", slideCount: 18, fileSize: "45 MB", gradient: "gradient-candy", icon: "🎯", fileUrl: "/1_Fruits.pptx" },
+  { id: "1", title: "Fruits", category: "Major Project", description: "Introduction and scope of the major project", slideCount: 12, fileSize: "45 MB", gradient: "gradient-candy", icon: "🎯", fileUrl: "/1_Fruits.pptx", slides: ["/slides/fruits/image1.png","/slides/fruits/image2.png","/slides/fruits/image3.png","/slides/fruits/image5.png","/slides/fruits/image6.png","/slides/fruits/image7.png","/slides/fruits/image8.png","/slides/fruits/image9.png","/slides/fruits/image10.png","/slides/fruits/image11.png","/slides/fruits/image12.png","/slides/fruits/image13.png"] },
   { id: "2", title: "Literature Survey", category: "Research", description: "Review of existing literature and related work", slideCount: 25, fileSize: "6.1 MB", gradient: "gradient-ocean", icon: "📚" },
   { id: "3", title: "System Architecture", category: "Design", description: "High-level system design and architecture diagrams", slideCount: 15, fileSize: "3.8 MB", gradient: "gradient-sunset", icon: "🏗️" },
   { id: "4", title: "Requirement Analysis", category: "Documentation", description: "Functional and non-functional requirements", slideCount: 20, fileSize: "2.9 MB", gradient: "gradient-forest", icon: "📋" },

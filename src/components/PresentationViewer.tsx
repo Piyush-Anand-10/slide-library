@@ -45,18 +45,32 @@ export const PresentationViewer = ({ presentation, onClose }: Props) => {
 
         {/* Slide Area */}
         <div className="flex-1 flex items-center justify-center p-8 bg-muted/50 relative">
-          <div className={`${presentation.gradient} rounded-2xl w-full max-w-3xl aspect-video flex flex-col items-center justify-center relative shadow-xl`}>
-            <span className="text-6xl mb-4">{presentation.icon}</span>
-            <h3 className="font-heading font-bold text-2xl text-primary-foreground drop-shadow-md">
-              {presentation.title}
-            </h3>
-            <p className="text-primary-foreground/80 mt-2 text-sm font-body">
-              Slide {currentSlide} of {presentation.slideCount}
-            </p>
-            <p className="text-primary-foreground/60 mt-6 text-xs font-body max-w-sm text-center px-4">
-              Replace this placeholder with actual slide images from your PPTX files
-            </p>
-          </div>
+          {presentation.slides && presentation.slides.length > 0 ? (
+            <div className="rounded-2xl w-full max-w-3xl aspect-video relative shadow-xl overflow-hidden bg-black">
+              <img
+                key={currentSlide}
+                src={presentation.slides[currentSlide - 1]}
+                alt={`Slide ${currentSlide}`}
+                className="w-full h-full object-contain animate-in fade-in duration-200"
+              />
+              <div className="absolute bottom-3 right-3 bg-black/50 text-white text-xs px-2.5 py-1 rounded-full backdrop-blur-sm font-medium">
+                {currentSlide} / {presentation.slideCount}
+              </div>
+            </div>
+          ) : (
+            <div className={`${presentation.gradient} rounded-2xl w-full max-w-3xl aspect-video flex flex-col items-center justify-center relative shadow-xl`}>
+              <span className="text-6xl mb-4">{presentation.icon}</span>
+              <h3 className="font-heading font-bold text-2xl text-primary-foreground drop-shadow-md">
+                {presentation.title}
+              </h3>
+              <p className="text-primary-foreground/80 mt-2 text-sm font-body">
+                Slide {currentSlide} of {presentation.slideCount}
+              </p>
+              <p className="text-primary-foreground/60 mt-6 text-xs font-body max-w-sm text-center px-4">
+                Replace this placeholder with actual slide images from your PPTX files
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Controls */}
