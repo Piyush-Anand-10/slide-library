@@ -46,15 +46,18 @@ export const PresentationViewer = ({ presentation, onClose }: Props) => {
         {/* Slide Area */}
         <div className="flex-1 flex items-center justify-center p-8 bg-muted/50 relative">
           {presentation.slides && presentation.slides.length > 0 ? (
-            <div className="rounded-2xl w-full max-w-3xl aspect-video relative shadow-xl overflow-hidden bg-black">
-              <img
-                key={currentSlide}
-                src={presentation.slides[currentSlide - 1]}
-                alt={`Slide ${currentSlide}`}
-                className="w-full h-full object-contain animate-in fade-in duration-200"
-              />
-              <div className="absolute bottom-3 right-3 bg-black/50 text-white text-xs px-2.5 py-1 rounded-full backdrop-blur-sm font-medium">
-                {currentSlide} / {presentation.slideCount}
+            <div className="relative w-full flex items-center justify-center">
+              <div className="relative shadow-xl rounded-2xl overflow-hidden max-w-full max-h-[calc(85vh-160px)]">
+                <img
+                  key={currentSlide}
+                  src={presentation.slides[currentSlide - 1]}
+                  alt={`Slide ${currentSlide}`}
+                  className="block max-w-full max-h-[calc(85vh-160px)] w-auto h-auto object-contain animate-in fade-in duration-200"
+                  style={{ display: "block" }}
+                />
+                <div className="absolute bottom-3 right-3 bg-black/50 text-white text-xs px-2.5 py-1 rounded-full backdrop-blur-sm font-medium">
+                  {currentSlide} / {presentation.slideCount}
+                </div>
               </div>
             </div>
           ) : (
