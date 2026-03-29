@@ -83,25 +83,23 @@ export const PresentationViewer = ({ presentation, onClose }: Props) => {
           </Button>
 
           {/* Slide indicator */}
-          <div className="flex items-center gap-1.5">
-            {Array.from({ length: Math.min(presentation.slideCount, 10) }, (_, i) => {
-              const slideNum = Math.min(
-                Math.max(currentSlide - 4, 1) + i,
-                presentation.slideCount
-              );
+          <div className="flex items-center gap-1.5 overflow-x-auto max-w-xs px-1">
+            {Array.from({ length: presentation.slideCount }, (_, i) => {
+              const slideNum = i + 1;
+              const isActive = slideNum === currentSlide;
               return (
                 <button
-                  key={i}
+                  key={slideNum}
                   onClick={() => setCurrentSlide(slideNum)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    slideNum === currentSlide
+                  className={`flex-shrink-0 h-2.5 rounded-full transition-all duration-300 ${
+                    isActive
                       ? "gradient-candy w-6 shadow-md"
-                      : "bg-border hover:bg-muted-foreground/30"
+                      : "w-2.5 bg-border hover:bg-muted-foreground/30"
                   }`}
                 />
               );
             })}
-            <span className="text-xs text-muted-foreground ml-2 font-medium">
+            <span className="text-xs text-muted-foreground ml-2 font-medium whitespace-nowrap flex-shrink-0">
               {currentSlide}/{presentation.slideCount}
             </span>
           </div>
