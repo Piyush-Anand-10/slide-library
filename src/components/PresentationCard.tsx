@@ -11,11 +11,14 @@ type Props = {
 export const PresentationCard = ({ presentation, onView, index }: Props) => {
   const handleDownload = (e: React.MouseEvent) => {
     e.stopPropagation();
-    // Placeholder: in production, this would trigger a real file download
     const link = document.createElement("a");
-    link.href = "#";
+    link.href = presentation.fileUrl ?? "#";
     link.download = `${presentation.title}.pptx`;
-    alert(`Download will start for: ${presentation.title}.pptx\n(Replace with real file URL)`);
+    if (presentation.fileUrl) {
+      link.click();
+    } else {
+      alert(`Download will start for: ${presentation.title}.pptx\n(Replace with real file URL)`);
+    }
   };
 
   return (
