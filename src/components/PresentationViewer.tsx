@@ -103,6 +103,12 @@ export const PresentationViewer = ({ presentation, onClose }: Props) => {
                     className="block max-w-full max-h-full w-auto h-auto animate-in fade-in duration-200"
                     style={{ maxHeight: currentAudio ? "calc(85vh - 220px)" : "calc(85vh - 160px)" }}
                   />
+                  {presentation.slideOverlays?.[currentSlide] && (
+                    <div className="absolute top-[26%] right-[4%] flex items-center gap-2 bg-[#f5a623] text-[#3b1f00] text-sm font-semibold px-3 py-1.5 rounded shadow-lg border border-[#d4891a] animate-in fade-in duration-200">
+                      <span>{presentation.slideOverlays[currentSlide].value}</span>
+                      <span className="text-lg leading-none">🔊</span>
+                    </div>
+                  )}
                   <div className="absolute bottom-3 right-3 bg-black/50 text-white text-xs px-2.5 py-1 rounded-full backdrop-blur-sm font-medium">
                     {currentSlide} / {presentation.slideCount}
                   </div>
