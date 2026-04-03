@@ -57,7 +57,7 @@ const Index = () => {
               {presentations.length} Presentations
             </span>
           </div>
-          <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight">
+          <h1 className="font-heading font-black text-2xl md:text-3xl lg:text-4xl text-primary-foreground leading-tight">
             Exploring Sanskrit Vocabulary: A Categorized Study with Pronunciation Support
           </h1>
           <p className="text-primary-foreground/80 mt-4 text-lg font-body max-w-xl mx-auto">
