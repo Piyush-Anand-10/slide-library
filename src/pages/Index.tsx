@@ -58,7 +58,7 @@ const Index = () => {
             </span>
           </div>
           <h1 className="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-primary-foreground leading-tight">
-            8th Sem Major Project
+            Exploring Sanskrit Vocabulary: A Categorized Study with Pronunciation Support
           </h1>
           <p className="text-primary-foreground/80 mt-4 text-lg font-body max-w-xl mx-auto">
             Browse, view, and download all project presentations organized by topic
