@@ -1,5 +1,5 @@
 import { type Presentation } from "@/data/presentations";
-import { X, ChevronLeft, ChevronRight, Maximize2, Minimize2, Volume2, VolumeX, Play, Pause } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Maximize2, Minimize2, Volume2, Play, Pause, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
 
@@ -114,6 +114,28 @@ export const PresentationViewer = ({ presentation, onClose }: Props) => {
                   </div>
                 </div>
               </div>
+
+              {/* External Link */}
+              {presentation.externalLink && (
+                <div className="w-full max-w-lg flex-shrink-0">
+                  <a
+                    href={presentation.externalLink.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 bg-card border border-primary/30 rounded-2xl px-4 py-3 shadow-md hover:bg-primary/5 hover:border-primary/60 transition-all group"
+                  >
+                    <div className="flex-shrink-0 w-9 h-9 rounded-full bg-red-500 flex items-center justify-center shadow-md">
+                      <ExternalLink className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs text-muted-foreground mb-0.5">Related Video</p>
+                      <p className="text-sm font-medium text-primary truncate group-hover:text-primary/80">
+                        {presentation.externalLink.label}
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              )}
 
               {/* Audio Player */}
               {currentAudio && (
