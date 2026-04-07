@@ -94,7 +94,7 @@ export const PresentationViewer = ({ presentation, onClose }: Props) => {
         <div className="flex-1 flex flex-col items-center justify-center p-6 bg-muted/50 relative gap-4 overflow-hidden">
           {presentation.slides && presentation.slides.length > 0 ? (
             <>
-              <div className="relative flex items-center justify-center w-full flex-1 min-h-0 overflow-y-auto">
+              <div className="relative flex items-start justify-center w-full flex-1 min-h-0 overflow-y-auto">
                 <div className="relative shadow-xl rounded-2xl overflow-hidden">
                   <img
                     key={currentSlide}
