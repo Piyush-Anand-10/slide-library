@@ -94,14 +94,14 @@ export const PresentationViewer = ({ presentation, onClose }: Props) => {
         <div className="flex-1 flex flex-col items-center justify-center p-6 bg-muted/50 relative gap-4 overflow-hidden">
           {presentation.slides && presentation.slides.length > 0 ? (
             <>
-              <div className="relative flex items-center justify-center w-full flex-1 min-h-0">
-                <div className="relative shadow-xl rounded-2xl overflow-hidden max-h-full">
+              <div className="relative flex items-center justify-center w-full flex-1 min-h-0 overflow-y-auto">
+                <div className="relative shadow-xl rounded-2xl overflow-hidden">
                   <img
                     key={currentSlide}
                     src={presentation.slides[currentSlide - 1]}
                     alt={`Slide ${currentSlide}`}
-                    className="block max-w-full max-h-full w-auto h-auto animate-in fade-in duration-200"
-                    style={{ maxHeight: currentAudio ? "calc(85vh - 220px)" : "calc(85vh - 160px)" }}
+                    className="block w-auto h-auto max-w-full animate-in fade-in duration-200"
+                    style={{ maxWidth: "100%", display: "block" }}
                   />
                   {presentation.slideOverlays?.[currentSlide] && (
                     <div className="absolute top-[26%] right-[4%] flex items-center gap-2 bg-[#f5a623] text-[#3b1f00] text-sm font-semibold px-3 py-1.5 rounded shadow-lg border border-[#d4891a] animate-in fade-in duration-200">
